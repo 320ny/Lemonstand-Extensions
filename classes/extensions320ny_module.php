@@ -8,6 +8,15 @@ class Extensions320ny_Module extends Core_ModuleBase {
 			"320ny" );
 	}
 
+	public function subscribeEvents()
+	{
+		  Backend::$events->addEvent('shop:onConfigureProductsController', $this, 'load_resources');
+	}
+
+	public function load_resources($controller)
+	{
+		  $controller->addJavaScript('/modules/extensions320ny/resources/javascript/colors_in_om.js');
+	}
 
 
 
